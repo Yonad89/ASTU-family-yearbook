@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/astu-yearbook/', // Set the base path for GitHub Pages deployment
+  base: '/astu-yearbook/',
 })
