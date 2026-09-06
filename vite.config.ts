@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/astu-yearbook/',
+  base: '/ASTU-family-yearbook/',
 })
