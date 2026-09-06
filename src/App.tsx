@@ -157,7 +157,7 @@ export const FAMILY_MEMBERS_DATA: FamilyMember[] = [
     role: "Sister",
     description: 'Talks non-stop. Literally. She is the light of the family. If Elroi is around, the family cannot get bored.',
     birthday: 'September 25',
-    photo: 'elroi.jpg',
+    photo: 'lee.jpg',
     favoriteVerse: 'Not added yet',
     knownFor: ['Talking', 'Energy', 'Laughter', 'Keeping everyone entertained'],
     //categories: ['Everyone', 'The Funny Ones', 'The Chaos Department 😂']
