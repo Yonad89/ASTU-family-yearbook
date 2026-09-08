@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 export default function Hero3D() {
   useEffect(() => {
-    // Dynamically load the official Spline viewer script if not already present
     if (!document.querySelector('script[src*="spline-viewer"]')) {
       const script = document.createElement('script');
       script.type = 'module';
@@ -12,7 +11,7 @@ export default function Hero3D() {
   }, []);
 
   return (
-    <div className="fixed inset-0 w-screen h-screen -z-10 bg-[#0c0d0e] overflow-hidden">
+    <div className="fixed inset-0 w-screen h-screen z-0 bg-[#0c0d0e] overflow-hidden pointer-events-none">
       {/* @ts-ignore */}
       <spline-viewer 
         url="https://prod.spline.design/jnGeSPeYb0orxDYP/scene.splinecode"
