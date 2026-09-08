@@ -21,7 +21,7 @@ import {
   Award,
   Zap
 } from 'lucide-react';
-
+import Hero3D from './Hero3D';
 // ==========================================
 // 1. TYPES & DATA STRUCTURES
 // ==========================================
@@ -614,6 +614,7 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
       <div className="absolute bottom-10 left-10 w-72 h-72 bg-amber-300/20 dark:bg-amber-900/10 rounded-full blur-2xl -z-10 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Hero3D/>
         {/* Modern Symbol Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/20 text-amber-700 dark:text-amber-300 text-xs sm:text-sm font-semibold mb-6 shadow-sm">
           <Cross className="w-4 h-4 text-amber-600 dark:text-amber-400" />
