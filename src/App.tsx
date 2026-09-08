@@ -1222,7 +1222,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-transparent:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300 selection:bg-amber-500 selection:text-white">
+    <div className="min-h-screen bg-[#0c0d0e] dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300 selection:bg-amber-500 selection:text-white">
    <Hero3D/>
       {/* Sticky Glassmorphic Navbar */}
       <Navbar
