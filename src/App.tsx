@@ -633,7 +633,7 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
   staggerDuration={0}
   rotationInterval={3500}
   transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
-  mainClassName="bg-gradient-to-r from-amber-600 via-orange-500 to-amber-700 dark:from-amber-400 dark:via-orange-400 dark:to-amber-500 bg-clip-text text-transparent overflow-hidden py-1 transform-gpu"
+  mainClassName="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-amber-600 via-orange-500 to-amber-700 dark:from-amber-400 dark:via-orange-400 dark:to-amber-500 bg-clip-text text-transparent overflow-hidden py-1 transform-gpu"
   splitLevelClassName="overflow-hidden"
   initial={{ y: '100%', opacity: 0 }}
   animate={{ y: 0, opacity: 1 }}
