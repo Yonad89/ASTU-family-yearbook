@@ -625,9 +625,7 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
        {/* Main Title */}
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 dark:text-slate-50 mb-6 leading-tight flex flex-col items-center">
           THE FELLOWSHIP
-         
-        </h1>
-<RotatingText
+         <RotatingText
   texts={['FAMILY', 'COMMUNITY', 'GENERATION', 'HOUSEHOLD']}
   splitBy="words"
   staggerDuration={0}
@@ -639,6 +637,8 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
   animate={{ y: 0, opacity: 1 }}
   exit={{ y: '-100%', opacity: 0 }}
 />
+        </h1>
+
         {/* Subtitle */}
         <p className="text-xl sm:text-2xl font-semibold text-amber-700 dark:text-amber-400 mb-6 tracking-wide">
           Different personalities. One family. One Christ.
