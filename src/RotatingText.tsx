@@ -6,7 +6,7 @@ import {
   type VariantLabels,
   type Target,
   type TargetAndTransition
-} from 'framer-motion';
+} from 'motion/react';
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {
   return classes.filter(Boolean).join(' ');
