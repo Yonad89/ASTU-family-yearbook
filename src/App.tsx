@@ -686,10 +686,12 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
 
         {/* Cinematic Hero Image Layout */}
         <div className="mt-14 relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-950/10 dark:border-slate-800 bg-slate-900">
-          <img
-            src="fam.jpg"
-            alt="ASTU Fellowship Family Group"
-            className="w-full h-[350px] sm:h-[480px] object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+          <ProfileCard
+            avatarUrl="fam.jpg"
+            name="ASTU Campus Memories"
+            title="Forever Bound in Faith & Friendship"
+            showUserInfo={false}
+            className="w-full flex justify-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6 sm:p-10">
             <div className="text-left text-white">
