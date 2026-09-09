@@ -22,6 +22,7 @@ import {
   Zap
 } from 'lucide-react';
 import Hero3D from './Hero3D';
+import RotatingText from './RotatingText';
 // ==========================================
 // 1. TYPES & DATA STRUCTURES
 // ==========================================
