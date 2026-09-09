@@ -203,7 +203,7 @@ export default function SoftAurora({
   useEffect(() => {
     if (!containerRef.current) return;
     const container = containerRef.current;
-    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false, drp: Math.min(windows.devicePixelRatio|| 1, 1.25) });
+    const renderer = new Renderer({ alpha: true, premultipliedAlpha: false, dpr: Math.min(window.devicePixelRatio || 1, 1.25)});
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
 
