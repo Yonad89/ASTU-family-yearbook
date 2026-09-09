@@ -1,126 +1,73 @@
-import React, { useEffect, useRef, useMemo, type ReactNode, type RefObject } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import React, { useMemo, type ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
 interface ScrollRevealProps {
   children: ReactNode;
-  scrollContainerRef?: RefObject<HTMLElement>;
   enableBlur?: boolean;
   baseOpacity?: number;
-  baseRotation?: number;
   blurStrength?: number;
   containerClassName?: string;
   textClassName?: string;
-  rotationEnd?: string;
-  wordAnimationEnd?: string;
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
-  scrollContainerRef,
   enableBlur = true,
   baseOpacity = 0.15,
-  baseRotation = 0,
   blurStrength = 4,
   containerClassName = '',
   textClassName = '',
-  rotationEnd = 'bottom 40%',
-  wordAnimationEnd = 'bottom 50%'
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const splitText = useMemo(() => {
+  const words = useMemo(() => {
     const text = typeof children === 'string' ? children : '';
-    return text.split(/(\s+)/).map((word, index) => {
-      if (word.match(/^\s+$/)) return word;
-      return (
-        <span className="inline-block word transform-gpu" key={index}>
-          {word}
-        </span>
-      );
-    });
+    return text.split(/\s+/);
   }, [children]);
 
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.03,
+      },
+    },
+  };
 
-    const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
-    const wordElements = el.querySelectorAll<HTMLElement>('.word');
-
-    const ctx = gsap.context(() => {
-      if (baseRotation !== 0) {
-        gsap.fromTo(
-          el,
-          { transformOrigin: '0% 50%', rotate: baseRotation },
-          {
-            ease: 'none',
-            rotate: 0,
-            scrollTrigger: {
-              trigger: el,
-              scroller,
-              start: 'top bottom',
-              end: rotationEnd,
-              scrub: true
-            }
-          }
-        );
-      }
-
-      gsap.fromTo(
-        wordElements,
-        { opacity: baseOpacity, willChange: 'opacity' },
-        {
-          ease: 'none',
-          opacity: 1,
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: 'top 85%',
-            end: wordAnimationEnd,
-            scrub: 0.5
-          }
-        }
-      );
-
-      if (enableBlur) {
-        gsap.fromTo(
-          wordElements,
-          { filter: `blur(${blurStrength}px)` },
-          {
-            ease: 'none',
-            filter: 'blur(0px)',
-            stagger: 0.05,
-            scrollTrigger: {
-              trigger: el,
-              scroller,
-              start: 'top 85%',
-              end: wordAnimationEnd,
-              scrub: 0.5
-            }
-          }
-        );
-      }
-    }, el);
-
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 200);
-
-    return () => {
-      clearTimeout(timer);
-      ctx.revert();
-    };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+  const wordVariants = {
+    hidden: {
+      opacity: baseOpacity,
+      filter: enableBlur ? `blur(${blurStrength}px)` : 'blur(0px)',
+      y: 6,
+    },
+    visible: {
+      opacity: 1,
+      filter: 'blur(0px)',
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: 'easeOut',
+      },
+    },
+  };
 
   return (
-    <div ref={containerRef} className={`my-5 ${containerClassName}`}>
-      <p className={`text-[clamp(1.2rem,2.5vw,1.8rem)] leading-[1.6] font-normal ${textClassName}`}>
-        {splitText}
-      </p>
+    <div className={`my-5 ${containerClassName}`}>
+      <motion.p
+        className={`text-[clamp(1.2rem,2.5vw,1.8rem)] leading-[1.6] ${textClassName}`}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {words.map((word, index) => (
+          <motion.span
+            key={index}
+            variants={wordVariants}
+            className="inline-block mr-[0.28em] transform-gpu"
+          >
+            {word}
+          </motion.span>
+        ))}
+      </motion.p>
     </div>
   );
 };
