@@ -25,6 +25,7 @@ import Hero3D from './Hero3D';
 import RotatingText from './RotatingText';
 import ScrollReveal from './ScrollReveal';
 import StarBorder from './StarBorder';
+import ProfileCard from './ProfileCard';
 // ==========================================
 // 1. TYPES & DATA STRUCTURES
 // ==========================================
