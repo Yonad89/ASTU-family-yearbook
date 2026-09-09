@@ -622,11 +622,21 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
         </div>
 
         {/* Main Title */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 dark:text-slate-50 mb-6 leading-tight">
-          THE FELLOWSHIP <br />
-          <span className="bg-gradient-to-r from-amber-600 via-orange-500 to-amber-700 dark:from-amber-400 dark:via-orange-400 dark:to-amber-500 bg-clip-text text-transparent">
-            FAMILY
-          </span>
+       {/* Main Title */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 dark:text-slate-50 mb-6 leading-tight flex flex-col items-center">
+          THE FELLOWSHIP
+          <RotatingText
+            texts={['FAMILY', 'COMMUNITY', 'GENERATION', 'HOUSEHOLD']}
+            mainClassName="bg-gradient-to-r from-amber-600 via-orange-500 to-amber-700 dark:from-amber-400 dark:via-orange-400 dark:to-amber-500 bg-clip-text text-transparent overflow-hidden py-1"
+            staggerFrom="first"
+            initial={{ y: '100%', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: '-120%', opacity: 0 }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden"
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            rotationInterval={3000}
+          />
         </h1>
 
         {/* Subtitle */}
