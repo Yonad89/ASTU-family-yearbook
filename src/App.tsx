@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import Hero3D from './Hero3D';
 import RotatingText from './RotatingText';
+import ScrollReveal from './ScrollReveal';
 // ==========================================
 // 1. TYPES & DATA STRUCTURES
 // ==========================================
@@ -645,9 +646,15 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
         </p>
 
         {/* Short Description */}
-        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
-          These are the people who turned a fellowship into a family. The laughs, the Bible studies, the advice, the arguments, the inside jokes, the questionable humor, and the memories that made our time at ASTU unforgettable.
-        </p>
+      <ScrollReveal
+  containerClassName="max-w-3xl mx-auto text-center"
+  textClassName="text-slate-300 font-normal !text-base sm:!text-lg leading-relaxed"
+  baseOpacity={0.15}
+  enableBlur={true}
+  blurStrength={3}
+>
+  These are the people who turned a fellowship into a family. The laughs, the Bible studies, the advice, the arguments, the inside jokes, the questionable humor, and the memories that made our time at ASTU unforgettable.
+</ScrollReveal>
 
         {/* Animated Action Button */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
