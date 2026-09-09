@@ -513,25 +513,25 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 backfaceVisibility: 'hidden'
               }}
             >
-              {avatarUrl && (
-                <img
-                  className="w-full absolute left-1/2 bottom-[-1px] will-change-transform transition-transform duration-[120ms] ease-out object-cover h-[80%]"
-                  src={avatarUrl}
-                  alt={`${name || 'User'} avatar`}
-                  loading="lazy"
-                  style={{
-                    transformOrigin: '50% 100%',
-                    transform:
-                      'translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01))',
-                    borderRadius: cardRadius,
-                    backfaceVisibility: 'hidden'
-                  }}
-                  onError={e => {
-                    const t = e.target as HTMLImageElement;
-                    t.style.display = 'none';
-                  }}
-                />
-              )}
+               {avatarUrl && (
+  <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: cardRadius }}>
+    <img
+      className="w-full h-full object-cover transition-transform duration-120 ease-out"
+      src={avatarUrl}
+      alt={`${name || 'User'} photo`}
+      loading="lazy"
+      style={{
+        transformOrigin: 'center center',
+        transform: 'scale(1.05)',
+        borderRadius: cardRadius
+      }}
+      onError={e => {
+        const t = e.target as HTMLImageElement;
+        t.style.display = 'none';
+      }}
+    />
+  </div>
+)}
 
               {showUserInfo && (
                 <div
