@@ -24,6 +24,7 @@ import {
 import Hero3D from './Hero3D';
 import RotatingText from './RotatingText';
 import ScrollReveal from './ScrollReveal';
+import StarBorder from './StarBorder';
 // ==========================================
 // 1. TYPES & DATA STRUCTURES
 // ==========================================
@@ -658,15 +659,22 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
 
         {/* Animated Action Button */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-          <button
-            onClick={onExplore}
-            className="group relative inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-white bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 shadow-lg shadow-amber-600/25 hover:shadow-amber-600/40 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
-          >
-            <span className="flex items-center gap-2 text-base">
-              Meet the Family
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </button>
+       <StarBorder
+  as="button"
+  onClick={onExplore}
+  className="group cursor-pointer shadow-lg shadow-orange-600/25 hover:shadow-orange-600/40 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+  color="#ffffff"
+  speed="5s"
+  thickness={2}
+  backgroundColor="#ea580c"
+  textColor="#ffffff"
+  borderColor="transparent"
+>
+  <span className="flex items-center gap-2 text-base font-bold">
+    Meet the Family
+    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+  </span>
+</StarBorder>
         </div>
 
         {/* Emotional Quote Badge */}
