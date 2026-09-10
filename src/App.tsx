@@ -27,6 +27,7 @@ import ScrollReveal from './ScrollReveal';
 import StarBorder from './StarBorder';
 import ProfileCard from './ProfileCard';
 import BorderGlow from './BorderGlow';
+import CircularGallery from './CircularGallery';
 // ==========================================
 // 1. TYPES & DATA STRUCTURES
 // ==========================================
