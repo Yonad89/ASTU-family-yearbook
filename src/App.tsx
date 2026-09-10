@@ -26,6 +26,7 @@ import RotatingText from './RotatingText';
 import ScrollReveal from './ScrollReveal';
 import StarBorder from './StarBorder';
 import ProfileCard from './ProfileCard';
+import BorderGlow from './BorderGlow';
 // ==========================================
 // 1. TYPES & DATA STRUCTURES
 // ==========================================
@@ -686,21 +687,34 @@ export const Hero: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
         </div>
 
         {/* Cinematic Hero Image Layout */}
-        <div className="mt-14 relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-950/10 dark:border-slate-800 bg-slate-900">
-         <img
-            src="fam.jpg"
-            alt="ASTU Fellowship Family Group"
-            className="w-full h-[350px] sm:h-[480px] object-cover opacity-90 hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6 sm:p-10">
-            <div className="text-left text-white">
-              <span className="px-3 py-1 rounded-md bg-amber-600/80 backdrop-blur-sm text-xs font-semibold uppercase tracking-wider mb-2 inline-block">
-                ASTU Campus Memories
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold">Forever Bound in Faith & Friendship</h3>
-            </div>
-          </div>
+      <div className="mt-14 max-w-5xl mx-auto">
+  <BorderGlow
+    borderRadius={24}
+    glowColor="38 92 50"
+    colors={['#d97706', '#f59e0b', '#fbbf24']}
+    backgroundColor="#0f172a"
+    edgeSensitivity={20}
+    glowRadius={30}
+    glowIntensity={1.2}
+    className="w-full"
+  >
+    <div className="relative rounded-3xl overflow-hidden">
+      <img
+        src="fam.jpg"
+        alt="ASTU Fellowship Family Group"
+        className="w-full h-[350px] sm:h-[480px] object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6 sm:p-10 pointer-events-none">
+        <div className="text-left text-white">
+          <span className="px-3 py-1 rounded-md bg-amber-600/80 backdrop-blur-sm text-xs font-semibold uppercase tracking-wider mb-2 inline-block">
+            ASTU Campus Memories
+          </span>
+          <h3 className="text-xl sm:text-2xl font-bold">Forever Bound in Faith & Friendship</h3>
         </div>
+      </div>
+    </div>
+  </BorderGlow>
+</div>
       </div>
     </section>
   );
