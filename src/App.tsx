@@ -127,7 +127,7 @@ export const FAMILY_MEMBERS_DATA: FamilyMember[] = [
     role: 'Big Brother',
     description: 'Genius mind yet somehow stupid at the same time. 😂 Can solve calculus problems but can also get stuck wondering whether the sun is following him or not. Despite the chaos, he is a genuine leader who knows how to gather everyone together and keep the family connected.',
     birthday: 'January 30',
-    photo: 'Gelo.jpg',
+    photo: 'Gelana.jpg',
     favoriteVerse: 'Not added yet',
     knownFor: ['Calculus', 'Intelligence', 'Leadership', 'Hilarious confusion'],
     //categories: ['Everyone', 'Leadership', 'The Funny Ones', 'The Chaos Department 😂']
